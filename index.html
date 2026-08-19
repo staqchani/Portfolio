@@ -155,7 +155,8 @@
 
                     <div class="row">
                       <div class="buttons padd-15">
-                        <a href="#" class="btn">Download CV</a>
+                        <!--<a href="#" class="btn">Download CV</a> -->
+                        <button id="downloadButton" class="btn">Download Resume</button>
                         <a href="#contact" class="btn hire-me">Hire Me</a>
                       </div>
                     </div>
@@ -574,5 +575,25 @@
     ></script>
     <script src="js/script.js"></script>
     <script src="js/style.switcher.js"></script>
+    <script>
+    function downloadPDF(url) {
+      var link = document.createElement('a');
+      link.href = url;
+      link.download = 'Musa_Ali_Game_Developer.pdf'; // Set the desired file name
+      link.target = '_blank'; // Open the PDF in a new tab/window
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var downloadButton = document.getElementById('downloadButton');
+      downloadButton.addEventListener('click', function() {
+        var pdfUrl = 'images/Musa_Ali_Resume.pdf';
+        downloadPDF(pdfUrl);
+      });
+    });
+  </script>
   </body>
 </html>
